@@ -1,0 +1,72 @@
+<div>
+  <app-widget-area></app-widget-area>
+</div>
+
+<br>
+
+<mat-divider></mat-divider>
+
+<br>
+
+<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-cards">
+  <mat-card fxFlex="25">
+    <app-widget-card label="Новых пользователей" total="9k" percentage="27"></app-widget-card>
+  </mat-card>
+  <mat-card fxFlex="25">
+    <app-widget-card label="Удержанных клиентов" total="5k" percentage="47"></app-widget-card>
+  </mat-card>
+  <mat-card fxFlex="25">
+    <app-widget-card label="Привлеченных клиентов" total="8k" percentage="80"></app-widget-card>
+  </mat-card>
+  <mat-card fxFlex="25">
+    <app-widget-card label="Рефералов" total="2k" percentage="1"></app-widget-card>
+  </mat-card>
+</div>
+
+<br>
+
+<mat-divider></mat-divider>
+
+<br>
+
+<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px">
+  <div fxFlex="60">
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" matSort>
+
+        <!-- ID Column -->
+<!--        <ng-container matColumnDef="id">-->
+<!--          <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>-->
+<!--          <td mat-cell *matCellDef="let row"> {{row.id}} </td>-->
+<!--        </ng-container>-->
+
+        <!-- Progress Column -->
+        <ng-container matColumnDef="progress">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Progress </th>
+          <td mat-cell *matCellDef="let row"> {{row.progress}}% </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+          <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+        </ng-container>
+
+        <!-- Fruit Column -->
+        <ng-container matColumnDef="fruit">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Position </th>
+          <td mat-cell *matCellDef="let row"> {{row.fruit}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5]" aria-label="Select page of users"></mat-paginator>
+    </div>
+  </div>
+  <div fxFlex="40">
+    <app-widget-pie></app-widget-pie>
+  </div>
+</div>
